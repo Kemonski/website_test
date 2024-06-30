@@ -1,0 +1,16 @@
+{% extends 'Pages/index.html' %}
+{% load static %}
+
+{% block content %}
+<div id="second">
+    <div class="loader">
+        <h2>Confirm Payment?</h2>
+        <p>Do you want to duo with this usagi for ₱{{ random_price }}?</p>
+        <form method="post">
+            {% csrf_token %}
+            <a href="{% url 'THANKPAGE' %}" class="btn btn-primary">Confirm</a>
+            <a href="{% url 'USAGIPAGE' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

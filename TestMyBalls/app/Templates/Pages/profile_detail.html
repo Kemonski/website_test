@@ -1,0 +1,26 @@
+{% extends 'Pages/index.html' %}
+{% load static %}
+{% block content %}
+<div id="second">
+    <div class="profile-detail-container">
+        <div class="profile-detail-card">
+            <div class="profile-picture">
+                <img src="{{ profile.profile_picture.url }}" alt="{{ profile.user }}">
+            </div>
+            <div class="profile-info">
+                <h3>{{ profile.user }}</h3>
+                <p>{{ profile.bio }}</p>
+                <h4>Games</h4>
+                <ul>
+                    {% for game in profile.games.all %}
+                    <li>{{ game.name }}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Status</h4>
+                <p>{{ profile.get_status_display }}</p>
+                <a href="{% url 'payment_success' %}" class="btn btn-primary">BUY</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

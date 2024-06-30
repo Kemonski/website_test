@@ -1,0 +1,42 @@
+{% extends 'Pages/index.html' %}
+{% load static %}
+
+{% block content %}
+<div id="first">
+    <div class="slideshow">
+        <div class="slideshowdim"></div>
+        <div class="slide" style="background-image: url('{% static "images/bunny1.jpg" %}');"></div>
+        <div class="slide" style="background-image: url('{% static "images/bunny2.jpg" %}');"></div>
+        <div class="slide" style="background-image: url('{% static "images/bunny3.jpg" %}');"></div>
+        <div class="slide" style="background-image: url('{% static "images/bunny4.jpg" %}');"></div>
+    </div>
+    <div class="button_title">
+        <h1 id="Title">USAGI RECRUIT</h1>
+        <button class="explorebutton" onclick="location.href='{% url 'USAGIPAGE' %}'">Explore</button>
+    </div>
+</div>
+
+<div id="second">
+
+        <h1 id="about">About us</h1>
+
+    <img src="{% static 'images/Keqing thumbs up.png' %}" alt="Keqing Thumbs Up">
+
+
+<div class="card">
+    <div class="card">
+  <div class="card2">
+      Usagi Recruit is a leading online platform dedicated to connecting talented individuals with exciting
+      career opportunities. A premier gaming and esports hub, we offer a seamless and personalized experience
+      for both job seekers and employers. Our mission is to revolutionize
+      the way people find their dream jobs and how companies discover the perfect candidates, catering to the
+      diverse needs of the gaming and technology industries. Whether you're a seasoned professional in the gaming sector or a rising
+      star looking to break into the industry, our comprehensive database and expert guidance will help
+      you navigate the job market and unlock your full potential. Join the Usagi Recruit community today
+      and embark on a rewarding career journey at the intersection of your passion and profession.
+  </div>
+</div>
+</div>
+
+</div>
+{% endblock %}

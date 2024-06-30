@@ -1,0 +1,44 @@
+{% extends 'Pages/base_crud.html' %}
+{% load static %}
+{% block content %}
+<div id="secondforcrud">
+    <div class="mb-3">
+        <a href="{% url 'usagiinfo_create' %}" class="btn btn-primary">Add New Usagi's</a>
+        <a href="{% url 'login' %}" class="btn btn-primary">Exit</a>
+        <a href="{% url 'HOMEPAGE' %}" class="btn btn-primary">Go To Homepage</a>
+    </div>
+    <div class="crud-container">
+    <div class="list-header">
+        <span>User</span>
+        <span>First Name</span>
+        <span>Last Name</span>
+        <span>Contact Number</span>
+        <span>Email</span>
+        <span>Gender</span>
+        <span>Country</span>
+        <span>Language</span>
+        <span>Actions</span>
+    </div>
+    <div id="list">
+        {% for det in details %}
+            <div class="list-item">
+                <div class="list-data">
+                    <span>{{ det.user }}</span>
+                    <span>{{ det.firstname }}</span>
+                    <span>{{ det.lastname }}</span>
+                    <span>{{ det.contact_number }}</span>
+                    <span>{{ det.email }}</span>
+                    <span>{{ det.gender }}</span>
+                    <span>{{ det.country }}</span>
+                    <span>{{ det.language }}</span>
+                </div>
+                <div class="list-actions">
+                    <a href="{% url 'usagiinfo_update' det.pk %}" class="btn btn-secondary">Edit</a>
+                    <a href="{% url 'usagiinfo_delete' det.pk %}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'Pages/base_crud.html' %}
+{% load static %}
+{% block content %}
+
+<div id="second">
+    <div class="loader">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

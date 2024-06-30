@@ -1,0 +1,21 @@
+{% extends 'Pages/index.html' %}
+{% load static %}
+{% block content %}
+<div id="second7">
+    <h1 id="customtitle">Meet The Usagis!</h1>
+    <div class="profile-container">
+        {% for profile in profiles %}
+        <a href="{% url 'profile_detail' profile.pk %}">
+            <div class="profile-card">
+                <div class="profile-picture">
+                    <img src="{{ profile.profile_picture.url }}" alt="{{ profile.user }}">
+                </div>
+                <div class="profile-info">
+                    <h3>{{ profile.user }}</h3>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

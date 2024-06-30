@@ -1,0 +1,51 @@
+{% extends 'Pages/base_crud.html' %}
+{% load static %}
+    {% block content %}
+
+    <div id="secondforcrud">
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+        <button class="boton-elegante" onclick="location.href='{% url 'HOMEPAGE' %}'">Homepage</button>
+        <p class="notworking">Login not working. Click this to go back at home page.</p>
+        <p class="notworking">For crud user is admin password is 123.</p>
+
+        <div class="container1">
+            <input id="signup_toggle" type="checkbox">
+            <form class="form" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{% url 'BUNNYPAGE' %}">
+                <div class="form_front">
+                    <div class="form_details">Login</div>
+                    <input type="text" class="input" name="username" placeholder="Username">
+                    <input type="password" class="input" name="password" placeholder="Password">
+                    <button class="btn1" type="submit">Login</button>
+                    <span class="switch">Don't have an account?
+                        <label for="signup_toggle" class="signup_tog">
+                            Sign Up
+                        </label>
+                    </span>
+                </div>
+                <div class="form_back">
+                    <div class="form_details">SignUp</div>
+                    <input type="text" class="input" placeholder="Firstname">
+                    <input type="text" class="input" placeholder="Username">
+                    <input type="password" class="input" placeholder="Password">
+                    <input type="password" class="input" placeholder="Confirm Password">
+                    <button class="btn1">Signup</button>
+                    <span class="switch">Already have an account?
+                        <label for="signup_toggle" class="signup_tog">
+                            Sign In
+                        </label>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% endblock %}
